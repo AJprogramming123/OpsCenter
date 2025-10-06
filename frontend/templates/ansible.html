@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansible Playbooks - InfraHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='card.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>InfraHub - Department Playbooks</h1>
+            <p class="tagline">Download Preconfigured Ansible Playbooks</p>
+        </div>
+    </header>
+
+    <!-- Go Back Home Button -->
+    <div class="container" style="margin: 1.5rem 0; text-align: center;">
+        <a href="{{ url_for('pages.start') }}" class="btn">← Go Back Home</a>
+    </div>
+
+    <section class="sections">
+        <div class="container">
+            <h2>Department-Specific Playbooks</h2>
+            <div class="cards">
+
+                <!-- Example Card: Talent Management -->
+                <div class="card">
+                    <h3>Talent Management Department</h3>
+                    <p>
+                        This playbook installs and configures essential tools for Talent Management:
+                        <ul>
+                            <li>PowerBI Desktop</li>
+                            <li>Excel and Office tools</li>
+                            <li>Configured Ubuntu environment ready for productivity</li>
+                        </ul>
+                    </p>
+                    <a href="/downloads/talent-management-playbook.yml" class="btn">Download Playbook</a>
+                    <p style="margin-top: 0.5rem;">
+                        View code on <a href="https://github.com/yourorg/talent-playbooks" target="_blank">GitHub</a>
+                    </p>
+                </div>
+
+                <!-- Example Card: IT Department -->
+                <div class="card">
+                    <h3>IT Department</h3>
+                    <p>
+                        Automates workstation setup for IT staff:
+                        <ul>
+                            <li>Network configuration scripts</li>
+                            <li>Security hardening</li>
+                            <li>Developer tools (Docker, Git, IDEs)</li>
+                        </ul>
+                    </p>
+                    <a href="/downloads/it-department-playbook.yml" class="btn">Download Playbook</a>
+                    <p style="margin-top: 0.5rem;">
+                        View code on <a href="https://github.com/yourorg/it-playbooks" target="_blank">GitHub</a>
+                    </p>
+                </div>
+
+                <!-- You can add more cards for other departments in the same format -->
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 InfraHub — Designed for Learning and Secure Deployment</p>
+    </footer>
+</body>
+</html>

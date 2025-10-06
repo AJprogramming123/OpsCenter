@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Autoinstaller - InfraHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='card.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>InfraHub - Ubuntu Autoinstaller</h1>
+            <p class="tagline">Secure, Ready-to-Use Ubuntu ISO</p>
+        </div>
+    </header>
+
+    <!-- Go Back Home Button -->
+    <div class="container" style="margin: 1.5rem 0; text-align: center;">
+        <a href="{{ url_for('pages.start') }}" class="btn">← Go Back Home</a>
+    </div>
+
+    <section class="sections">
+        <div class="container">
+            <h2>Download Your Preconfigured ISO</h2>
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Ubuntu Latest LTS</h3>
+                    <p>
+                        This ISO comes fully preconfigured and ready for deployment:
+                        <ul>
+                            <li>SSH enabled for remote access</li>
+                            <li>Root user configured with secure password</li>
+                            <li>Firewall and basic security rules applied</li>
+                            <li>Language, region, and timezone pre-set</li>
+                            <li>Essential system and security hardening applied</li>
+                            <li>Ready for automation with Ansible or other tools</li>
+                        </ul>
+                    </p>
+                    <a href="/downloads/ubuntu-autoinstaller.iso" class="btn">Download ISO</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 InfraHub — Designed for Learning and Secure Deployment</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* ======= Global Styles ======= */
+body {
+    font-family: "Tahoma", "Verdana", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3d7b9; /* light cardboard brown */
+    color: #3b2f2f;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: auto;
+}
+
+/* ======= Header ======= */
+header {
+    background-color: #c7b185;
+    color: #3b2f2f;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 4px double #a79061;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+}
+
+header .tagline {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* ======= Section ======= */
+.sections {
+    padding: 3rem 0;
+}
+
+.sections h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #7a5e3c;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ======= Cards ======= */
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.card {
+    background-color: #f0e6d0; /* slightly lighter cardboard */
+    border: 2px solid #b59f7f;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 4px 4px 0px #b59f7f;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 6px 6px 0px #b59f7f;
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    color: #5c4731;
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    margin: 0.5rem 0 1rem 1.2rem;
+}
+
+.card li {
+    margin-bottom: 0.4rem;
+}
+
+/* ======= Buttons ======= */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(to bottom, #b59f7f 0%, #a68f66 100%);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #8c7a5c;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 1px 1px 0px #8c7a5c;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #a68f66 0%, #b59f7f 100%);
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0px #8c7a5c;
+}
+
+/* ======= Footer ======= */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    border-top: 2px dashed #b59f7f;
+    background-color: #c7b185;
+    color: #3b2f2f;
+    font-size: 0.9rem;
+}

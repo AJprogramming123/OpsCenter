@@ -10,7 +10,7 @@ installed python 3.13.7
 - python --version
 - python -m venv venv
 - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-- .\Activate.ps1
+- venv\Scripts\Activate.ps1
 
 Installed packages
 - flask -> 'pip install flask' -> 'pip show flask' -> 'python app.py'
@@ -22,3 +22,6 @@ git
 git add .
 git commit -m "Message"
 git push origin main
+
+
+Reverse Proxy
