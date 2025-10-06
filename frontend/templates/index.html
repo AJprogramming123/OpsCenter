@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/static/home.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>InfraHub</h1>
+            <p class="tagline">Simplify, Automate, Deploy.</p>
+            <p class="description">
+                InfraHub is a centralized IT automation hub that brings together autoinstallers, 
+                Ansible playbooks, and Docker deployment scripts — built to help IT specialists 
+                and students build reliable infrastructure faster.
+            </p>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>
+                We’re a community of system administrators, DevOps engineers, and IT students 
+                focused on simplifying infrastructure setup and automation.  
+                Our platform provides ready-to-use solutions — from prebuilt OS installers to 
+                configuration playbooks and container deployment scripts.
+            </p>
+        </div>
+    </section>
+
+    <section class="sections">
+        <div class="container">
+            <h2>Explore Our Tools</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>1. ISO Autoinstallers</h3>
+                    <p>
+                        Download preconfigured OS images that install automatically with SSH and Ansible 
+                        enabled out of the box. Perfect for building consistent lab environments fast.
+                    </p>
+                    <a href="{{ url_for('isos') }}" class="btn">View ISOs</a>
+                </div>
+                <div class="card">
+                    <h3>2. Ansible Playbooks</h3>
+                    <p>
+                        Access department-specific automation scripts for tasks like network setup, 
+                        system hardening, and server provisioning.
+                    </p>
+                    <a href="{{ url_for('playbooks') }}" class="btn">View Playbooks</a>
+                </div>
+                <div class="card">
+                    <h3>3. Docker Setup Scripts</h3>
+                    <p>
+                        Run a simple one-liner to deploy containerized services — perfect for 
+                        users who want a quick setup without the complexity.
+                    </p>
+                    <a href="{{ url_for('docker_scripts') }}" class="btn">View Scripts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 InfraHub — Designed for Learning and Deployment</p>
+    </footer>
+</body>
+</html>
