@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+import os
+from flask import Blueprint, render_template, send_from_directory, current_app
 
 moving_bp = Blueprint('pages', __name__)
 
@@ -26,3 +27,16 @@ def playbooks():
 @moving_bp.route('/docker-scripts')
 def docker_scripts():
     return render_template('docker.html')
+
+
+#------Autoinstaller download-----#
+#Ubuntu Desktop Autoinstaller
+@moving_bp.route('/ubuntu')
+def ubuntu():
+    # Get the path set in your app config
+    downloads_dir = current_app.config.get('DOWNLOADS_FOLDER', os.path.join(os.getcwd(), 'downloads'))
+    filename = 'autoinstall.yaml'
+    return send_from_directory(downloads_dir, filename, as_attachment=True)
+
+
+    

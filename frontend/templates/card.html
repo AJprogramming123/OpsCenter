@@ -25,19 +25,41 @@
             <div class="cards">
 
                 <div class="card">
-                    <h3>Ubuntu Latest LTS</h3>
+                    <h3>Ubuntu Desktop ISO (Official)</h3>
                     <p>
-                        This ISO comes fully preconfigured and ready for deployment:
-                        <ul>
-                            <li>SSH enabled for remote access</li>
-                            <li>Root user configured with secure password</li>
-                            <li>Firewall and basic security rules applied</li>
-                            <li>Language, region, and timezone pre-set</li>
-                            <li>Essential system and security hardening applied</li>
-                            <li>Ready for automation with Ansible or other tools</li>
-                        </ul>
+                        Before proceeding, note the following:
                     </p>
-                    <a href="/downloads/ubuntu-autoinstaller.iso" class="btn">Download ISO</a>
+                    <ul>
+                        <li>As of Ubuntu <strong>24.04+</strong>, Subiquity now supports desktop autoinstallers.</li>
+                        <li>Ensure you download version <strong>24.04 LTS</strong> or later for this configuration to function.</li>
+                        <li>This will redirect you to the <em>official Ubuntu website</em> to obtain the ISO.</li>
+                    </ul>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://ubuntu.com/download/desktop" target="_blank" class="btn">⬇️ Download Official Ubuntu ISO</a>
+                    </div>
+
+                    <hr style="margin: 2rem 0; border: 1px dashed #b59f7f;">
+
+                    <h3>Autoinstall Configuration File</h3>
+                    <p>
+                        Download the ready-to-use <strong>autoinstall.yaml</strong> configuration file used to automate Ubuntu setup.
+                    </p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="{{ url_for('pages.ubuntu') }}" class="btn" download>🧩 Download autoinstall.yaml</a>
+                    </div>
+
+                    <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
+                        Want to view the full code or follow a step-by-step guide?<br>
+                        Check out the project on GitHub:<br>
+                        <a href="https://github.com/AJprogramming123/OpsCenter-autoinstaller" target="_blank" style="color: #5c4731; font-weight: bold; text-decoration: underline;">
+                            Visit OpsCenter Autoinstaller Repo →
+                        </a>
+                    </p>
+
+                    <p style="margin-top: 1rem; text-align: center; font-style: italic; color: #7a5e3c;">
+                        🎥 A full video tutorial will be added soon on the Downloads page — stay tuned!
+                    </p>
                 </div>
 
             </div>

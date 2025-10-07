@@ -1,0 +1,42 @@
+autoinstall:
+  version: 1
+
+  # Identity setup
+  identity:
+    hostname: workstation1
+    realname: Administrator
+    username: admin
+    password: "$6$dy.YIeF9fdpBYX8s$ml43cQBbC7kGzL5wLcTrUeaWD7XYY4LXfltd7qiHFH.MBvRQmrUvjyc/SmJYZNPKWCPny1iBYb0DMHSX0tCfh1"
+
+  # Keyboard layout
+  keyboard:
+    layout: us
+
+  # Locale and timezone
+  locale: en_US.UTF-8
+  timezone: America/New_York
+
+  # Interactive sections
+  interactive-sections:
+    - network
+
+  # SSH setup
+  ssh:
+    install-server: true
+    authorized-keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF31FO6M5wr3nRjoKA99Zbrkchi8wgay61g6od2i7ZKz jaime@partago"
+    allow-pw: false
+
+  # During installation
+  error-commands:
+    - "tar -czf /installer-logs.tar.gz /var/log/installer"
+    - "journalctl -b > /installer-journal.log"
+
+  # After installation
+  late-commands:
+    - curtin in-target --target=/target -- bash -c 'apt update -y'
+    - curtin in-target --target=/target -- bash -c 'apt upgrade -y'
+    - curtin in-target --target=/target -- bash -c 'systemctl enable ssh'
+    - curtin in-target --target=/target -- bash -c 'systemctl start ssh'
+    - curtin in-target --target=/target -- bash -c 'ufw allow OpenSSH'
+    - curtin in-target --target=/target -- bash -c 'sleep 2 && ufw --force enable'
