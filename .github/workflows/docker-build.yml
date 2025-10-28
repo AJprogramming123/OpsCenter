@@ -1,4 +1,4 @@
-name: Docker image push!! [flask app setup]
+name: opscenter backend
 
 on:
   workflow_dispatch:
