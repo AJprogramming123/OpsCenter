@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: website
+    container_name: backend
+    expose:
+      - "6000"
+    restart: unless-stopped
+
+  reverse-proxy:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    image: reverseproxy
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  webnet:
+    driver: bridge
