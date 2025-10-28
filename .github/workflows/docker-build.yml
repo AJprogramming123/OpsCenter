@@ -33,7 +33,7 @@ jobs:
       
       - name: Retag backend image
         run: |
-         docker tag opscenter ghcr.io/ajprogramming123/portfolio:${{ github.event.inputs.new_version }}
+         docker tag opscenter ghcr.io/ajprogramming123/OpsCenter:${{ github.event.inputs.new_version }}
          
       - name: Push new backend tag
-        run: docker push ghcr.io/ajprogramming123/portfolio:${{ github.event.inputs.new_version }}
+        run: docker push ghcr.io/ajprogramming123/OpsCenter:${{ github.event.inputs.new_version }}
