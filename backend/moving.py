@@ -1,34 +1,46 @@
-import os
-from flask import Blueprint, render_template, send_from_directory, current_app
+import boto3
+from flask import Blueprint, Response
 
 moving_bp = Blueprint('pages', __name__)
 
-@moving_bp.route('/')
-def start():
-    return render_template('index.html')
+# Create S3 client (no credentials needed — IAM handles it)
+s3 = boto3.client('s3')
+BUCKET_NAME = 'capstone-ajaimes'
 
-# Example additional routes for your buttons
+# --- Serve HTML templates directly from S3 ---
+@moving_bp.route('/')
+def index():
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key='frontend/templates/index.html')
+    html = obj['Body'].read().decode('utf-8')
+    return Response(html, mimetype='text/html')
+
 @moving_bp.route('/isos')
-def isos():
-    return render_template('card.html')
+def home():
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key='frontend/templates/card.html')
+    html = obj['Body'].read().decode('utf-8')
+    return Response(html, mimetype='text/html')
 
 @moving_bp.route('/playbooks')
-def playbooks():
-    return render_template('ansible.html')
+def about():
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key='frontend/templates/ansible.html')
+    html = obj['Body'].read().decode('utf-8')
+    return Response(html, mimetype='text/html')
 
 @moving_bp.route('/docker-scripts')
 def docker_scripts():
-    return render_template('docker.html')
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key='frontend/templates/docker.html')
+    html = obj['Body'].read().decode('utf-8')
+    return Response(html, mimetype='text/html')
 
 
-#------Autoinstaller download-----#
-#Ubuntu Desktop Autoinstaller
-@moving_bp.route('/ubuntu')
-def ubuntu():
-    # Get the path set in your app config
-    downloads_dir = current_app.config.get('DOWNLOADS_FOLDER', os.path.join(os.getcwd(), 'downloads'))
-    filename = 'autoinstall.yaml'
-    return send_from_directory(downloads_dir, filename, as_attachment=True)
 
 
-    
+# --- Serve download files (Ansible, YAML, etc) ---
+@moving_bp.route('/downloads/<filename>')
+def download_file(filename):
+    file_key = f'downloads/{filename}'
+    file_obj = s3.get_object(Bucket=BUCKET_NAME, Key=file_key)
+    return Response(
+        file_obj['Body'].read(),
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
