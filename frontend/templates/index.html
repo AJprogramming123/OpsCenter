@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfraHub</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('pages.serve_css', filename='home.css') }}">
 </head>
 <body>
     <header>
@@ -51,15 +52,6 @@
                         system hardening, and server provisioning.
                     </p>
                     <a href="{{ url_for('pages.playbooks') }}" class="btn">View Playbooks</a>
-                </div>
-                <div class="card">
-                    <h3>3. Docker Setup Scripts</h3>
-                    <p>
-                        Run a simple one-liner to deploy containerized services — perfect for 
-                        users who want a quick setup without the complexity.
-                    </p>
-                    <a href="{{ url_for('pages.docker_scripts') }}" class="btn">View Scripts</a>
-                </div>
             </div>
         </div>
     </section>
