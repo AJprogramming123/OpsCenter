@@ -1,37 +1,46 @@
-from flask import Blueprint, Response, send_file, render_template_string
-from io import BytesIO
 import boto3
+from flask import Blueprint, Response, render_template_string
 
 moving_bp = Blueprint('pages', __name__)
 s3 = boto3.client('s3')
 BUCKET_NAME = 'capstone-ajaimes'
 
-# --- Serve HTML templates directly from S3 ---
-def render_s3_template(key):
+# --- Helper function ---
+def get_s3_text_file(key):
+    """Fetch a text file (HTML or CSS) from S3 and decode it."""
     obj = s3.get_object(Bucket=BUCKET_NAME, Key=key)
-    html = obj['Body'].read().decode('utf-8')
-    return render_template_string(html)
+    return obj['Body'].read().decode('utf-8')
 
+# --- HTML routes ---
 @moving_bp.route('/')
 def index():
-    return render_s3_template('frontend/templates/index.html')
+    html = get_s3_text_file('frontend/templates/index.html')
+    return render_template_string(html)
 
 @moving_bp.route('/isos')
-def home():
-    return render_s3_template('frontend/templates/card.html')
+def isos():
+    html = get_s3_text_file('frontend/templates/card.html')
+    return render_template_string(html)
 
 @moving_bp.route('/playbooks')
-def about():
-    return render_s3_template('frontend/templates/ansible.html')
+def playbooks():
+    html = get_s3_text_file('frontend/templates/ansible.html')
+    return render_template_string(html)
 
-# --- Serve static files (CSS, JS, images) from S3 ---
-@moving_bp.route('/static/<path:filename>')
-def static_files(filename):
-    obj = s3.get_object(Bucket=BUCKET_NAME, Key=f'frontend/static/{filename}')
-    return send_file(BytesIO(obj['Body'].read()), download_name=filename)
+#--- Serve CSS directly from S3 ---
+@moving_bp.route('/static/<filename>')
+def serve_css(filename):
+    """Serve CSS files from S3 (e.g. home.css)."""
+    css_key = f'frontend/static/{filename}'
+    css_content = get_s3_text_file(css_key)
+    return Response(css_content, mimetype='text/css')
 
-# --- Serve downloadable files from S3 ---
+# --- File downloads ---
 @moving_bp.route('/downloads/<filename>')
 def download_file(filename):
-    obj = s3.get_object(Bucket=BUCKET_NAME, Key=f'downloads/{filename}')
-    return send_file(BytesIO(obj['Body'].read()), download_name=filename, as_attachment=True)
+    file_key = f'downloads/{filename}'
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key=file_key)
+    return Response(
+        obj['Body'].read(),
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
