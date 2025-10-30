@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansible Playbooks - InfraHub</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='card.css') }}">
+     <link rel="stylesheet" href="{{ url_for('pages.serve_css', filename='card.css') }}">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
 
     <!-- Go Back Home Button -->
     <div class="container" style="margin: 1.5rem 0; text-align: center;">
-        <a href="{{ url_for('pages.start') }}" class="btn">← Go Back Home</a>
+        <a href="{{ url_for('pages.index') }}" class="btn">← Go Back Home</a>
     </div>
 
     <section class="sections">
