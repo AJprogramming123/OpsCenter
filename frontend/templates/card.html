@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubuntu Autoinstaller - InfraHub</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='card.css') }}">
+     <link rel="stylesheet" href="{{ url_for('pages.serve_css', filename='card.css') }}">
 </head>
 <body>
     <header>
@@ -46,7 +46,7 @@
                         Download the ready-to-use <strong>autoinstall.yaml</strong> configuration file used to automate Ubuntu setup.
                     </p>
                     <div style="text-align: center; margin-top: 1rem;">
-                        <a href="{{ url_for('pages.ubuntu') }}" class="btn" download>🧩 Download autoinstall.yaml</a>
+                        <a href="{{ url_for('pages.download_file', filename='autoinstall.yaml') }}" class="btn" download>🧩 Download autoinstall.yaml</a>
                     </div>
 
                     <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
