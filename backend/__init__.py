@@ -3,7 +3,8 @@ from flask import Flask
 from .moving import moving_bp
 
 def create_app():
-    app = Flask(__name__)
+    # disable FlaskΓÇÖs internal /static route
+    app = Flask(__name__, static_folder=None)
 
     # Configure S3 client
     app.config['S3_BUCKET'] = 'mycapstonebucket'
