@@ -2,10 +2,6 @@ name: opscenter backend
 
 on:
   workflow_dispatch:
-    inputs:
-      new_version:
-        description: 'New image tag to apply (e.g., v1.2)'
-        required: true
 
 jobs:
   build:
@@ -29,11 +25,9 @@ jobs:
         run: |
           docker compose build backend
 
-
-      
-      - name: Retag backend image
+      - name: Retag backend image as latest
         run: |
-         docker tag opscenter ghcr.io/ajprogramming123/opscenter:${{ github.event.inputs.new_version }}
-         
-      - name: Push new backend tag
-        run: docker push ghcr.io/ajprogramming123/opscenter:${{ github.event.inputs.new_version }}
+          docker tag opscenter ghcr.io/ajprogramming123/opscenter:latest
+
+      - name: Push latest backend image
+        run: docker push ghcr.io/ajprogramming123/opscenter:latest
