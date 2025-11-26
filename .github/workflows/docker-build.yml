@@ -1,4 +1,4 @@
-name: Push backend image
+name: image push [backend setup]
 
 on:
   workflow_dispatch:
@@ -22,9 +22,10 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build backend image
-        run: docker compose build backend
-
-      - name: Tag and push backend image
         run: |
-          docker tag backend:latest ghcr.io/ajprogramming123/opscenter:latest
+          docker compose build backend
+
+      - name: Push backend image to GHCR
+        run: |
+          docker tag backend ghcr.io/ajprogramming123/opscenter:latest
           docker push ghcr.io/ajprogramming123/opscenter:latest
