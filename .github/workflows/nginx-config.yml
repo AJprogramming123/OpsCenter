@@ -1,4 +1,4 @@
-name: image push [nginx changes setup]
+name: Push reverse-proxy image
 
 on:
   workflow_dispatch:
@@ -21,17 +21,10 @@ jobs:
           username: ajprogramming123
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Build images with docker-compose
-        run: |
-          docker compose build backend reverse-proxy
-
-      - name: Tag and push backend image
-        run: |
-          # Docker Compose images are named <folder>_<service>:latest by default
-          docker tag opscenter_backend:latest ghcr.io/ajprogramming123/opscenter:latest
-          docker push ghcr.io/ajprogramming123/opscenter:latest
+      - name: Build reverse-proxy image
+        run: docker compose build reverse-proxy
 
       - name: Tag and push reverse-proxy image
         run: |
-          docker tag opscenter_reverse-proxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
+          docker tag reverse-proxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
           docker push ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
