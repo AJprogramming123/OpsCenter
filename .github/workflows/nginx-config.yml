@@ -1,8 +1,8 @@
-name: image push [nginx changes setup] 
+name: image push [nginx changes setup]
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +25,13 @@ jobs:
         run: |
           docker compose build backend reverse-proxy
 
-      - name: Push new nginx (reverse proxy) tag
+      - name: Tag and push backend image
         run: |
-          docker tag reverseproxy ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
+          # Docker Compose images are named <folder>_<service>:latest by default
+          docker tag opscenter_backend:latest ghcr.io/ajprogramming123/opscenter:latest
+          docker push ghcr.io/ajprogramming123/opscenter:latest
+
+      - name: Tag and push reverse-proxy image
+        run: |
+          docker tag opscenter_reverse-proxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
           docker push ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
