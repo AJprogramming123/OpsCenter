@@ -24,9 +24,7 @@ jobs:
       - name: Build and tag reverse-proxy image
         run: |
           docker compose build reverse-proxy
-          # Make sure the image exists
           docker images
-          # Tag it for GHCR
           docker tag opscenter-reverseproxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
 
       - name: Push reverse-proxy image
