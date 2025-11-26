@@ -21,13 +21,9 @@ jobs:
           username: ajprogramming123
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Build images with docker-compose
+      - name: Build and tag backend image for GHCR
         run: |
-          docker compose build backend
-
-      - name: Retag backend image as latest
-        run: |
-          docker tag opscenter ghcr.io/ajprogramming123/opscenter:latest
+          docker build -t ghcr.io/ajprogramming123/opscenter:latest -f Dockerfile .
 
       - name: Push latest backend image
         run: docker push ghcr.io/ajprogramming123/opscenter:latest
