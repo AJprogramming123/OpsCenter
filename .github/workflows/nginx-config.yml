@@ -1,4 +1,4 @@
-name: Push reverse-proxy image
+name: Push Reverse Proxy Image
 
 on:
   workflow_dispatch:
@@ -21,10 +21,13 @@ jobs:
           username: ajprogramming123
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Build reverse-proxy image
-        run: docker compose build reverse-proxy
-
-      - name: Tag and push reverse-proxy image
+      - name: Build and tag reverse-proxy image
         run: |
-          docker tag reverse-proxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
-          docker push ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
+          docker compose build reverse-proxy
+          # Make sure the image exists
+          docker images
+          # Tag it for GHCR
+          docker tag opscenter-reverseproxy:latest ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
+
+      - name: Push reverse-proxy image
+        run: docker push ghcr.io/ajprogramming123/opscenter-reverseproxy:latest
