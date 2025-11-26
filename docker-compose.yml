@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: ghcr.io/ajprogramming123/opscenter:latest  # <- explicitly set image name
+    image: backend  # matches the service name used in GitHub Action
     container_name: backend
     expose:
       - "6000"
@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: ./nginx/Dockerfile
-    image: ghcr.io/ajprogramming123/opscenter-reverseproxy:latest  # <- explicitly set image name
+    image: reverse-proxy  # matches the service name used in GitHub Action
     container_name: reverse-proxy
     ports:
       - "80:80"
