@@ -23,6 +23,9 @@ services:
       - backend
     restart: unless-stopped
 
+    volumes:
+      - ./nginx/healthcheck.html:/usr/share/nginx/html/healthcheck.html
+
 networks:
   webnet:
     driver: bridge
