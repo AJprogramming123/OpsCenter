@@ -51,10 +51,7 @@ def download_file(filename):
 #NEW UPDATES - Around Thanksgiving time
 @moving_bp.route('/images/<filename>')
 def serve_png(filename):
-    if not filename.lower().endswith('.png'):
-        return "Invalid file type", 400
     s3_key = f'frontend/images/{filename}'
-
     obj = s3.get_object(Bucket=BUCKET_NAME, Key=s3_key)
     return Response(obj['Body'].read(), mimetype='image/png')
 
