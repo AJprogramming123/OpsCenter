@@ -1,4 +1,5 @@
 import boto3
+import mimetypes
 from flask import Blueprint, Response, render_template_string
 
 moving_bp = Blueprint('pages', __name__)
@@ -44,3 +45,16 @@ def download_file(filename):
         obj['Body'].read(),
         headers={"Content-Disposition": f"attachment; filename={filename}"}
     )
+
+
+#---------------------------------------#
+#NEW UPDATES - Around Thanksgiving time
+@moving_bp.route('/images/<filename>')
+def serve_png(filename):
+    if not filename.lower().endswith('.png'):
+        return "Invalid file type", 400
+    s3_key = f'frontend/static/images/{filename}'
+
+    obj = s3.get_object(Bucket=BUCKET_NAME, Key=s3_key)
+    return Response(obj['Body'].read(), mimetype='image/png')
+
