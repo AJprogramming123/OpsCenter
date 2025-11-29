@@ -14,13 +14,15 @@ services:
       - webnet
 
   reverse-proxy:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    image: reverse-proxy
     container_name: reverse-proxy
     ports:
       - "80:80"
     depends_on:
-      backend:
-        condition: service_healthy  # waits for backend healthcheck
+      - backend
     restart: unless-stopped
     networks:
       - webnet
