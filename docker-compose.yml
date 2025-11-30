@@ -21,10 +21,6 @@ services:
     container_name: reverse-proxy
     ports:
       - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - /etc/letsencrypt/live/infrahub.me:/certs:ro
     depends_on:
       - backend
     restart: unless-stopped
