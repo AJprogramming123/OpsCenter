@@ -55,3 +55,26 @@ def serve_png(filename):
     obj = s3.get_object(Bucket=BUCKET_NAME, Key=s3_key)
     return Response(obj['Body'].read(), mimetype='image/png')
 
+
+#--------------------------------------#
+#Routes to AWS Guides just generated before deadline
+
+@moving_bp.route('/aws')
+def aws():
+    html = get_s3_text_file('frontend/templates/aws.html')
+    return render_template_string(html)
+
+@moving_bp.route('/aws/multicdn')
+def multi_cdn():
+    html = get_s3_text_file('frontend/templates/aws/multicdn.html')
+    return render_template_string(html)
+
+@moving_bp.route('/aws/s3backend')
+def s3_backend():
+    html = get_s3_text_file('frontend/templates/aws/s3backend.html')
+    return render_template_string(html)
+
+@moving_bp.route('/aws/security')
+def security():
+    html = get_s3_text_file('frontend/templates/aws/security.html')
+    return render_template_string(html)
