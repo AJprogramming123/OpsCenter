@@ -3,7 +3,7 @@ from flask import Flask
 from .moving import moving_bp
 
 def create_app():
-    # disable FlaskΓÇÖs internal /static route
+    # disable Flasks internal /static route
     app = Flask(__name__, static_folder=None)
 
     # Configure S3 client
