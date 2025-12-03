@@ -19,7 +19,7 @@ def index():
     return render_template_string(html)
 
 @moving_bp.route('/isos')
-def isos():
+def docker():
     html = get_s3_text_file('frontend/templates/card.html')
     return render_template_string(html)
 
