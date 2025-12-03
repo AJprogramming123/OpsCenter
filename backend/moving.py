@@ -28,6 +28,11 @@ def playbooks():
     html = get_s3_text_file('frontend/templates/ansible.html')
     return render_template_string(html)
 
+@moving_bp.route('/docker')
+def isos():
+    html = get_s3_text_file('frontend/templates/docker.html')
+    return render_template_string(html)
+
 #--- Serve CSS directly from S3 ---
 @moving_bp.route('/static/<filename>')
 def serve_css(filename):
