@@ -1,9 +1,5 @@
 # OpsCenter
 
-<p align="center">
-  <img src="./assets/banner.png" alt="OpsCenter" width="800"/>
-</p>
-
 InfraHub is a platform built for IT professionals, sysadmins, and DevOps learners who want faster, smarter infrastructure management. Download preconfigured system installers, access ready-to-run Ansible playbooks, and deploy containerized environments with a single command — all from one place.
 
 ---
@@ -12,8 +8,8 @@ InfraHub is a platform built for IT professionals, sysadmins, and DevOps learner
 
 | Thumbnail | Tutorial |
 |-----------|----------|
-| [![Video 1](https://img.youtube.com/vi/qnawmYbv_xY/mqdefault.jpg)](https://youtu.be/qnawmYbv_xY) | **Tutorial 1** — Add your description here. |
-| [![Video 2](https://img.youtube.com/vi/4KiVolDbvIU/mqdefault.jpg)](https://youtu.be/4KiVolDbvIU) | **Tutorial 2** — Add your description here. |
+| [![Video 1](https://img.youtube.com/vi/qnawmYbv_xY/mqdefault.jpg)](https://youtu.be/qnawmYbv_xY) | **EXAMPLE 1 |
+| [![Video 2](https://img.youtube.com/vi/4KiVolDbvIU/mqdefault.jpg)](https://youtu.be/4KiVolDbvIU) | **EXAMPLE 2 |
 
 ---
 
