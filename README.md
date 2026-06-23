@@ -12,12 +12,8 @@ InfraHub is a platform built for IT professionals, sysadmins, and DevOps learner
 
 | Thumbnail | Tutorial |
 |-----------|----------|
-| [![Setup Flask App](https://img.youtube.com/vi/YOUR_VIDEO_ID_1/mqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1) | **Setting Up a Flask App from Scratch** — Clone the repo, create a virtual environment, install dependencies, and run your first local server. |
-| [![Reverse Proxy Setup](https://img.youtube.com/vi/YOUR_VIDEO_ID_2/mqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2) | **Configuring a Reverse Proxy** — Route traffic through Nginx or Caddy to your Flask app running on a local port. |
-| [![Docker Deploy](https://img.youtube.com/vi/YOUR_VIDEO_ID_3/mqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3) | **Deploying with Docker** — Containerize the app and run it with a single command using a preconfigured Dockerfile. |
-| [![Autoinstaller ISO](https://img.youtube.com/vi/YOUR_VIDEO_ID_4/mqdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_4) | **Building an Autoinstaller ISO** — Create a bootable ISO with preseed/kickstart configs for hands-free system provisioning. |
-
-> Replace `YOUR_VIDEO_ID_1` etc. with the actual YouTube video IDs from your video URLs (e.g. `https://youtube.com/watch?v=dQw4w9WgXcQ` → ID is `dQw4w9WgXcQ`).
+| [![Video 1](https://img.youtube.com/vi/qnawmYbv_xY/mqdefault.jpg)](https://youtu.be/qnawmYbv_xY) | **Tutorial 1** — Add your description here. |
+| [![Video 2](https://img.youtube.com/vi/4KiVolDbvIU/mqdefault.jpg)](https://youtu.be/4KiVolDbvIU) | **Tutorial 2** — Add your description here. |
 
 ---
 
